@@ -1,5 +1,5 @@
 Package: finalproject
-Title: project code and narrative
+Title: Missing Mental Health Data in NHANES and Waterborne Outbreak Size
 Version: 0.0.3
 Authors@R:
     person(given = "Yi",
@@ -7,8 +7,12 @@ Authors@R:
            role = c("aut", "cre"),
            email = "yiwang1@hsph.harvard.edu",
            comment = c(ORCID = "0000-0002-1825-0097"))
-Description: provide text on what your project emphasizes and 
-	accomplishes in three or more complete sentences.
+Description: Examines demographic patterns in missing mental health responses
+    in NHANES and changes in sample composition after excluding incomplete
+    records. Compares reported waterborne outbreak sizes across drinking
+    water and recreational water exposure types using CDC data.
+    Provides reproducible analyses, descriptive summaries, and visualizations
+    through R package vignettes and a pkgdown website.
 Depends: R (>= 4.5.0)
 Suggests: knitr, testthat, rmarkdown, pkgdown
 License: Artistic-2.0
