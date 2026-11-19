@@ -1,0 +1,51 @@
+---
+title: "Project Proposal: Missing Data in NHANES and Waterborne Outbreak Size"
+format: html
+editor: visual
+author: "Yi Wang"
+date: 2026-11-18
+---
+
+## Vignette 1: Missing Data Analysis in NHANES
+
+1.  **Research question**
+
+    Among adults aged 20 years and older in the NHANES dataset provided in the NHANES R package, are age and recorded sex associated with a missing response to the depressed-mood item?
+
+2.  **Unit of analysis and population**
+
+    The unit of analysis will be an individual participant, and the study population will be adults aged 20 years and older in the NHANES dataset. These data are derived from the CDC National Health and Nutrition Examination Survey conducted in 2009–2010 and 2011–2012 and are distributed through the NHANES R package. Because this dataset was constructed by resampling the original survey records, repeated participant IDs will be identified and accounted for when estimating uncertainty.
+
+3.  **Exposure variables, coding, and missing responses**
+
+    The primary explanatory variables will be age and recorded sex. Age will be retained as a numeric variable in the model and grouped into 20–39, 40–59, and 60 years or older for descriptive summaries. Recorded sex will be coded as a categorical variable with female as the reference category and male as the comparison category. Records with missing age or sex will be counted and excluded from the corresponding adjusted analysis. I will check variable documentation to distinguish ineligible responses from missing data.
+
+4.  **Outcome variable and type**
+
+    The primary outcome will be a binary categorical indicator of whether the Depressed item is missing: 1 for a missing response and 0 for an observed response. An observed response of None will be treated as valid. I will report missingness percentages and use logistic regression to identify demographic groups with higher or lower probabilities of a missing response. As a secondary analysis, I will compare age, sex, race/ethnicity, education, and income-to-poverty distributions before and after excluding records with missing Depressed responses. This comparison will quantify how many records are lost and which demographic groups become more or less represented after deletion, helping assess the consequences of using only complete records.
+
+5.  **Prespecified confounders and adjustment variables**
+
+    Before examining exposure–outcome associations, I will specify race/ethnicity and survey cycle as adjustment variables, with age and sex mutually adjusted. Social differences in survey participation and differences between survey cycles may influence response availability, motivating these choices. Race/ethnicity and survey cycle will be treated as categorical variables. Missing adjustment variables will be reported, and affected records will be excluded from the adjusted model. This adjustment will help assess whether age and sex remain associated with missingness after accounting for race/ethnicity and survey cycle.
+
+## Vignette 2: Water Exposure Type and Waterborne Outbreak Size
+
+1.  **Research question**
+
+    Among reported US waterborne disease outbreaks, does the number of illnesses per outbreak differ between drinking water, treated recreational water, and untreated recreational water exposures?
+
+2.  **Unit of analysis and population**
+
+    The unit of analysis will be one reported outbreak. I will use the CDC outbreak records distributed as waterborne in the finalproject R package and restrict the dataset to records whose primary transmission mode is Water. The study population will consist of reported outbreaks in the included US jurisdictions and years. I will document the dataset's source, coverage, and exclusions to make the selection of outbreaks reproducible.
+
+3.  **Exposure variable, coding, and missing responses**
+
+    The exposure will be water exposure type, coded as a categorical variable with three groups: drinking water, treated recreational water, and untreated recreational water. Drinking water will be the reference category. Records with mixed, other, undetermined, or missing water exposures will be summarized separately and excluded from the primary three-group comparison. I will report the number excluded for each reason.
+
+4.  **Outcome variable and type**
+
+    The outcome will be the reported number of illnesses per outbreak. This is a quantitative discrete count. I will convert the illness field to numeric values, investigate invalid entries, and exclude records with unresolved invalid or missing counts without replacing them with zero. I will compare group means, medians, interquartile ranges, and distributions, and use negative binomial regression if model checks support it. These summaries and models will describe differences in outbreak size across water exposure groups. I will retain valid extreme outbreaks in the primary analysis and repeat the analysis without the largest outbreak to assess how strongly it influences the comparison.
+
+5.  **Prespecified confounders and adjustment variables**
+
+    Before examining exposure–outcome associations, I will specify year, season, and US Census region as adjustment variables. Water use and environmental conditions can vary by season and region, while reporting practices can change over time; these factors may be associated with both exposure type and reported outbreak size. Year will be modeled numerically with allowance for a nonlinear trend, and season and region will be categorical. Season will be derived from the recorded month and region from the recorded state. Records missing these adjustment variables will be excluded from the adjusted model but retained in descriptive summaries when possible. The adjusted model will compare outbreak sizes across water exposure types while accounting for these temporal and geographic differences.
