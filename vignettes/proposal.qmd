@@ -6,6 +6,8 @@ author: "Yi Wang"
 date: 2026-11-18
 ---
 
+### To: BST260 Teaching Team, Fall 2026
+
 ## Vignette 1: Missing Data Analysis in NHANES
 
 1.  **Research question**
