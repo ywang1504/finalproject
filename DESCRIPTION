@@ -19,6 +19,6 @@ License: Artistic-2.0
 VignetteBuilder: quarto
 Encoding: UTF-8
 URL: https://github.com/ywang1504/finalproject
-BugReports: https://github.com/ywang1504/finalproject
+BugReports: https://github.com/ywang1504/finalproject/issues
 Config/roxygen2/version: 8.1.1
 Roxygen: list(markdown=TRUE)
