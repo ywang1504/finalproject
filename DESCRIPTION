@@ -5,7 +5,7 @@ Authors@R:
     person(given = "Yi",
            family = "Wang",
            role = c("aut", "cre"),
-           email = "youremail@gmail.com",
+           email = "yiwang1@hsph.harvard.edu",
            comment = c(ORCID = "0000-0002-1825-0097"))
 Description: provide text on what your project emphasizes and 
 	accomplishes in three or more complete sentences.
